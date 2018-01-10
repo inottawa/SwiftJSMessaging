@@ -10,16 +10,22 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var paymentTokenLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let paymentToken = UserDefaults.standard.value(forKey: "token") as? String {
+            paymentTokenLabel.text = paymentToken
+            UserDefaults.standard.set(nil, forKey: "token")
+            UserDefaults.standard.synchronize()
+        }
     }
-
 
 }
 

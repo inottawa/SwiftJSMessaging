@@ -12,6 +12,7 @@
 		943011CF2006451900747ACD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 943011CD2006451900747ACD /* Main.storyboard */; };
 		943011D12006451900747ACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 943011D02006451900747ACD /* Assets.xcassets */; };
 		943011D42006451900747ACD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 943011D22006451900747ACD /* LaunchScreen.storyboard */; };
+		943011DC200647E300747ACD /* PaymentWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943011DB200647E300747ACD /* PaymentWeb.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		943011D02006451900747ACD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		943011D32006451900747ACD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		943011D52006451900747ACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		943011DB200647E300747ACD /* PaymentWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWeb.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				943011C92006451900747ACD /* AppDelegate.swift */,
 				943011CB2006451900747ACD /* ViewController.swift */,
+				943011DB200647E300747ACD /* PaymentWeb.swift */,
 				943011CD2006451900747ACD /* Main.storyboard */,
 				943011D02006451900747ACD /* Assets.xcassets */,
 				943011D22006451900747ACD /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				943011CC2006451900747ACD /* ViewController.swift in Sources */,
+				943011DC200647E300747ACD /* PaymentWeb.swift in Sources */,
 				943011CA2006451900747ACD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
