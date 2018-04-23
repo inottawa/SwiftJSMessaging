@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var paymentTokenLabel: UILabel!
+    @IBOutlet weak var greatSuccessLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +21,13 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if let paymentToken = UserDefaults.standard.value(forKey: "token") as? String {
+        if let paymentToken = UserDefaults.standard.value(forKey: "payload") as? String {
+            greatSuccessLabel.alpha = 1
             paymentTokenLabel.text = paymentToken
-            UserDefaults.standard.set(nil, forKey: "token")
+            UserDefaults.standard.set(nil, forKey: "payload")
             UserDefaults.standard.synchronize()
+        } else {
+            greatSuccessLabel.alpha = 0
         }
     }
 

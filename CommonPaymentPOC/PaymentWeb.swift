@@ -24,13 +24,13 @@ extension PaymentWeb {
         let contentController = WKUserContentController();
         
         //call a web javascript method after document is loaded
-        let userScript = WKUserScript(
-            source: "helloFromApp()",
-            injectionTime: WKUserScriptInjectionTime.atDocumentEnd,
-            forMainFrameOnly: true
-        )
-        contentController.addUserScript(userScript)
-        
+//        let userScript = WKUserScript(
+//            source: "helloFromApp()",
+//            injectionTime: WKUserScriptInjectionTime.atDocumentEnd,
+//            forMainFrameOnly: true
+//        )
+//        contentController.addUserScript(userScript)
+
         //register a listener for self
         contentController.add(
             self,
@@ -47,7 +47,7 @@ extension PaymentWeb {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let myURL = URL(string: "http://localhost:8080")
+        let myURL = URL(string: "https://www.canadapost.ca/cpo/mc/zDemo/mobile-test.html")
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
         
@@ -55,17 +55,20 @@ extension PaymentWeb {
 
 }
 
+struct PaymentData: Codable {
+    var rs: Int
+    var payload: String
+}
+
 extension PaymentWeb: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if message.name == "callbackHandler" {
-            let paymentMessage = message.body as? String
-            let components = paymentMessage?.components(separatedBy: [":"])
-            if let token = components?.last {
-                UserDefaults.standard.set(token, forKey: "token")
+            if let paymentMessage = message.body as? Dictionary<String, AnyObject>,
+                let token = paymentMessage["payload"] {
+                UserDefaults.standard.set(token, forKey: "payload")
                 UserDefaults.standard.synchronize()
                 self.dismissVC(nil)
             }
-            
         }
     }
     
